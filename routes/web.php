@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 // group all routes for administration
 
 Route::middleware(['auth', 'verified'])
@@ -26,6 +29,8 @@ Route::middleware(['auth', 'verified'])
     ->prefix('admin')
     ->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/create', [ProjectController::class, 'create'])->name('create');
+        Route::get('/store', [ProjectController::class, 'store'])->name('store');
     });
 
 

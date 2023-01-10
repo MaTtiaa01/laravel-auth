@@ -77,6 +77,8 @@
                                     @csrf
                                 </form>
                             </div>
+
+                            <a class="btn btn-primary btn-sm" href="{{route('admin.create')}}">Add</a>
                         </li>
                         @endguest
                     </ul>
