@@ -53,7 +53,7 @@ class ProjectController extends Controller
         $new_project->save();
 
         //return a view
-        return view('admin.dashboard');
+        return to_route('admin.dashboard');
     }
 
     /**

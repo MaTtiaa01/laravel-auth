@@ -30,7 +30,7 @@ Route::middleware(['auth', 'verified'])
     ->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
         Route::get('/create', [ProjectController::class, 'create'])->name('create');
-        Route::get('/store', [ProjectController::class, 'store'])->name('store');
+        Route::post('/store', [ProjectController::class, 'store'])->name('store');
     });
 
 
