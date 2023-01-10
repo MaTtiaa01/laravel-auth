@@ -10,17 +10,17 @@
             @csrf
 
             <div class="mb-3">
-                <label for="" class="form-label">Title</label>
+                <label for="title" class="form-label">Title</label>
                 <input type="text" name="title" id="title" class="form-control" placeholder="insert a name" aria-describedby="helpId">
                 <small id="helpId" class="text-muted">insert a project name</small>
             </div>
             <div class="mb-3">
-                <label for="" class="form-label">description</label>
+                <label for="description" class="form-label">description</label>
                 <input type="text" name="description" id="description" class="form-control" placeholder="insert a description" aria-describedby="helpId">
                 <small id="helpId" class="text-muted">insert a project description</small>
             </div>
             <div class="mb-3">
-                <label for="" class="form-label">language</label>
+                <label for="language" class="form-label">language</label>
                 <input type="text" name="language" id="language" class="form-control" placeholder="insert a language url" aria-describedby="helpId">
                 <small id="helpId" class="text-muted">insert a project language url</small>
             </div>

@@ -42,6 +42,18 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
+        //validate data
+
+        //save data
+        //dd($request);
+        $new_project = new Project();
+        $new_project->title = $request->title;
+        $new_project->description = $request->description;
+        $new_project->language = $request->language;
+        $new_project->save();
+
+        //return a view
+        return view('admin.dashboard');
     }
 
     /**
