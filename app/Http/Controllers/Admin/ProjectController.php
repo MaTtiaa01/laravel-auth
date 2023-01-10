@@ -6,6 +6,9 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 
+//take data from logged user
+use Illuminate\Support\Facades\Auth;
+
 class ProjectController extends Controller
 {
     /**
@@ -15,7 +18,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
+        $projects = Project::orderByDesc('id')->get();
+        //dd($projects);
+        return view('admin.projects.index', compact('projects'));
     }
 
     /**
