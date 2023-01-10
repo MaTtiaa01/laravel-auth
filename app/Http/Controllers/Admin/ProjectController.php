@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
+use App\Http\Controllers\Controller;
 
 //take data from logged user
 use Illuminate\Support\Facades\Auth;
