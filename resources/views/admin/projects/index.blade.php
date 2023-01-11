@@ -13,7 +13,6 @@
                     <th scope="col">id</th>
                     <th scope="col">title </th>
                     <th scope="col">description </th>
-                    <th scope="col">language </th>
                     <th scope="col">actions </th>
 
                 </tr>
@@ -23,10 +22,9 @@
                     <td scope="row">{{$project->id}}</td>
                     <td>{{$project->title}}</td>
                     <td>{{$project->description}}</td>
-                    <td>{{$project->language}}</td>
-                    <td class="d-flex flex-column">
-                        <a class="btn btn-primary btn-sm" href="{{route('admin.projects.edit',$project->id)}}">edit</a>
-                        <a class="btn btn-primary btn-sm" href="{{route('admin.projects.show',$project->id)}}">show</a>
+                    <td class="d-flex justify-content-around">
+                        <a class="btn btn-primary btn-sm" href="{{route('admin.projects.edit',$project->id)}}"><i class="fa-solid fa-pencil"></i></a>
+                        <a class="btn btn-primary btn-sm" href="{{route('admin.projects.show',$project->id)}}"><i class="fa-solid fa-eye"></i></a>
                         <form action="{{route('admin.projects.destroy',$project->id)}}" method="post">
                             @csrf
                             @method('DELETE')
@@ -34,7 +32,7 @@
 
                             <!-- Modal trigger button -->
                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalId">
-                                Delete
+                                <i class="fa-solid fa-trash"></i>
                             </button>
 
                             <!-- Modal Body -->
@@ -43,7 +41,7 @@
                                 <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="modalTitleId">Modal title</h5>
+                                            <h5 class="modal-title" id="modalTitleId">Delete form</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
