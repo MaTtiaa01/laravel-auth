@@ -6,6 +6,8 @@
 <section class="py-5">
 
     <div class="container">
+        @include('partials.error')
+
         <form action="{{route('admin.projects.update',$project->id)}}" method="post" class="card p-3">
             @csrf
             @method('PUT')
