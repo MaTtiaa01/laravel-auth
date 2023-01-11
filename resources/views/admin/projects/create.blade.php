@@ -6,7 +6,7 @@
 <section class="py-5">
 
     <div class="container">
-        <form action="{{route('admin.store')}}" method="post" class="card p-3">
+        <form action="{{route('admin.projects.store')}}" method="post" class="card p-3">
             @csrf
 
             <div class="mb-3">

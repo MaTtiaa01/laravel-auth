@@ -78,7 +78,7 @@
                                 </form>
                             </div>
 
-                            <a class="btn btn-primary btn-sm" href="{{route('admin.create')}}">Add</a>
+                            <a class="btn btn-primary btn-sm" href="{{route('admin.projects.create')}}">Add</a>
                         </li>
                         @endguest
                     </ul>

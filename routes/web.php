@@ -29,9 +29,8 @@ Route::middleware(['auth', 'verified'])
     ->prefix('admin')
     ->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-        Route::get('/create', [ProjectController::class, 'create'])->name('create');
-        Route::post('/store', [ProjectController::class, 'store'])->name('store');
-        Route::get('/show', [ProjectController::class, 'show'])->name('show');
+        Route::resource('projects', ProjectController::class);
+        // TODO use slug instead of id with ->parameters[]
     });
 
 

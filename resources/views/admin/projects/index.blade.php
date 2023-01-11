@@ -24,12 +24,12 @@
                     <td>{{$project->description}}</td>
                     <td>{{$project->language}}</td>
                     <td class="d-flex flex-column">
-                        <a class="btn btn-primary" href="#">edit</a>
-                        <a class="btn btn-primary" href="{{route('admin.show',$project->id)}}">show</a>
+                        <a class="btn btn-primary btn-sm" href="#">edit</a>
+                        <a class="btn btn-primary btn-sm" href="{{route('admin.projects.show',$project->id)}}">show</a>
                         <form action="#" method="post">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger">delete</button>
+                            <button class="btn btn-danger btn-sm">delete</button>
                         </form>
                     </td>
                 </tr>
