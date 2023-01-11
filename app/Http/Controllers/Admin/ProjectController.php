@@ -43,17 +43,13 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
         //validate data
-
+        $val_data = $request->validated();
         //save data
         //dd($request);
-        $new_project = new Project();
-        $new_project->title = $request->title;
-        $new_project->description = $request->description;
-        $new_project->language = $request->language;
-        $new_project->save();
+        $new_project = Project::create($val_data);
 
         //return a view
-        return to_route('admin.dashboard');
+        return to_route('admin.dashboard')->with('message', "$new_project->title added successfully");
     }
 
     /**

@@ -4,6 +4,7 @@
 
 <h1 class="text-center text-uppercase">project view</h1>
 <div class="container">
+    @include('partials.message')
     @forelse($projects as $project)
     <div class="table-responsive">
         <table class="table table-primary">
