@@ -2,11 +2,14 @@
 
 @section('content')
 
-<h1 class="text-center text-uppercase">project view</h1>
 <div class="container py-5">
+    <h1 class="text-center text-uppercase">project view</h1>
+
+    <!-- Create button -->
+    <a href="{{route('admin.projects.create')}}" class="btn btn-primary my-3 "><i class="fa-solid fa-plus"></i></a>
+
     @include('partials.message')
-    @forelse($projects as $project)
-    <div class="table-responsive">
+    <div class="table-responsive ">
         <table class="table table-primary">
             <thead>
                 <tr>
@@ -18,13 +21,14 @@
                 </tr>
             </thead>
             <tbody>
+                @forelse($projects as $project)
                 <tr class="">
                     <td scope="row">{{$project->id}}</td>
                     <td>{{$project->title}}</td>
                     <td>{{$project->description}}</td>
-                    <td class="d-flex justify-content-around">
+                    <td class="d-flex flex-column align-items-center justify-content-center">
                         <a class="btn btn-primary btn-sm" href="{{route('admin.projects.edit',$project->id)}}"><i class="fa-solid fa-pencil"></i></a>
-                        <a class="btn btn-primary btn-sm" href="{{route('admin.projects.show',$project->id)}}"><i class="fa-solid fa-eye"></i></a>
+                        <a class="btn btn-primary btn-sm my-2" href="{{route('admin.projects.show',$project->id)}}"><i class="fa-solid fa-eye"></i></a>
                         <form action="{{route('admin.projects.destroy',$project->id)}}" method="post">
                             @csrf
                             @method('DELETE')
@@ -58,17 +62,16 @@
                         </form>
                     </td>
                 </tr>
+                @empty
+                <tr>
+                    Ops! No projects available yet!
+                </tr>
+                @endforelse
             </tbody>
         </table>
     </div>
-    @empty
-    <tr>
-        Ops! No projects available yet!
-    </tr>
-    @endforelse
 
-    <!-- Create button -->
-    <a href="{{route('admin.projects.create')}}" class="btn btn-primary "><i class="fa-solid fa-plus"></i></a>
+
 </div>
 </section>
 
