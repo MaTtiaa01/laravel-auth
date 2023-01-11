@@ -25,7 +25,7 @@
                     <td>{{$project->description}}</td>
                     <td>{{$project->language}}</td>
                     <td class="d-flex flex-column">
-                        <a class="btn btn-primary btn-sm" href="#">edit</a>
+                        <a class="btn btn-primary btn-sm" href="{{route('admin.projects.edit',$project->id)}}">edit</a>
                         <a class="btn btn-primary btn-sm" href="{{route('admin.projects.show',$project->id)}}">show</a>
                         <form action="#" method="post">
                             @csrf
