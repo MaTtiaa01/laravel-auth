@@ -3,7 +3,7 @@
 @section('content')
 
 <h1 class="text-center text-uppercase">project view</h1>
-<div class="container">
+<div class="container py-5">
     @include('partials.message')
     @forelse($projects as $project)
     <div class="table-responsive">
@@ -61,12 +61,14 @@
             </tbody>
         </table>
     </div>
-
     @empty
     <tr>
         Ops! No projects available yet!
     </tr>
     @endforelse
+
+    <!-- Create button -->
+    <a href="{{route('admin.projects.create')}}" class="btn btn-primary "><i class="fa-solid fa-plus"></i></a>
 </div>
 </section>
 
