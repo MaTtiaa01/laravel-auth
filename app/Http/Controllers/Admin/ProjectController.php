@@ -59,7 +59,7 @@ class ProjectController extends Controller
         $new_project = Project::create($val_data);
 
         //return a view
-        return to_route('admin.dashboard')->with('message', "$new_project->title added successfully");
+        return to_route('admin.projects.index')->with('message', "$new_project->title added successfully");
     }
 
     /**
@@ -120,6 +120,9 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        if ($project->cover_img) {
+            Storage::delete($project->cover_img);
+        }
         $project->delete();
         return to_route('admin.projects.index')->with('message', "$project->title deleted successefully");
     }
