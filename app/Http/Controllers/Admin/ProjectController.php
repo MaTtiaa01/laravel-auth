@@ -94,6 +94,20 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $val_data = $request->validated();
+
+        //check if there is an image, if yes delete it and add the new one
+        if ($request->hasFile('cover_img')) {
+
+            if ($project->cover_img) {
+                Storage::delete($project->cover_image);
+            }
+
+            $cover_img = Storage::put('uploads', $val_data['cover_img']);
+            $val_data['cover_img'] = $cover_img;
+        }
+
+
+
         $project->update($val_data);
         return to_route('admin.projects.index')->with('message', "$project->title updated successefully");
     }
