@@ -14,6 +14,7 @@
             <thead>
                 <tr>
                     <th scope="col">id</th>
+                    <th scope="col">image</th>
                     <th scope="col">title </th>
                     <th scope="col">description </th>
                     <th scope="col">actions </th>
@@ -24,6 +25,13 @@
                 @forelse($projects as $project)
                 <tr class="">
                     <td scope="row">{{$project->id}}</td>
+                    <td scope="row">
+                        @if($project->cover_img)
+                        <img width="100" src="{{asset('storage/' . $project->cover_img)}}" alt="">
+                        @else
+                        <div>No images available</div>
+                        @endif
+                    </td>
                     <td>{{$project->title}}</td>
                     <td>{{$project->description}}</td>
                     <td class="d-flex flex-column align-items-center justify-content-center">

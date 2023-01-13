@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 //take data from logged user
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -45,7 +46,16 @@ class ProjectController extends Controller
         //validate data
         $val_data = $request->validated();
         //save data
-        //dd($request);
+        //dd($val_data);
+
+        //check if there is a file as cover_img
+        if ($request->hasFile('cover_img')) {
+            $cover_img = Storage::put('uploads', $val_data['cover_img']);
+
+            $val_data['cover_img'] = $cover_img;
+        }
+
+
         $new_project = Project::create($val_data);
 
         //return a view
