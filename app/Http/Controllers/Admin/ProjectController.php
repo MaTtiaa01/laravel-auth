@@ -99,7 +99,7 @@ class ProjectController extends Controller
         if ($request->hasFile('cover_img')) {
 
             if ($project->cover_img) {
-                Storage::delete($project->cover_image);
+                Storage::delete($project->cover_img);
             }
 
             $cover_img = Storage::put('uploads', $val_data['cover_img']);
